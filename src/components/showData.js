@@ -7,22 +7,18 @@ import { selectPlaylist } from "../store/playlist/selector";
 const ShowData = (props) => {
   const playlist = useSelector(selectPlaylist);
   console.log("playlist in showData component", playlist);
-  console.log(
-    "playlist.length in showdata component",
-    playlist.playlist.length
-  );
 
   return (
     <div>
-      <p>
+      <div>
         {playlist.loading === false ? (
           playlist.playlist.tracks.items.map((track) => {
-            return <p> {track.track.name} </p>;
+            return <p key={track.track.id}> {track.track.name} </p>;
           })
         ) : (
-          <p>click on fetch playlist</p>
+          <p></p>
         )}
-      </p>
+      </div>
     </div>
   );
 };

@@ -39,7 +39,7 @@ export const fetchPlaylist = () => {
         }
       ).then((response) => {
         dispatch(fetchPlaylistSucces(response.data));
-        console.log("from action:", response.data);
+        console.log("from action fetch playlist:", response.data);
       });
     });
   };

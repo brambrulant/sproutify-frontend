@@ -1,29 +1,33 @@
-import { useState } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Login from "./components/login";
 import Home from "./components/home";
-import Hello from "./components/hello";
+import queryString from "querystring";
+import axios from "axios";
 
 function App() {
-  const [whatever, set_whatever] = useState();
-  const history = useHistory();
+  const query = queryString.parse(window.location.search);
+  const token = query["?access_token"];
+  console.log(token);
 
-  const handleCallback = ({ location }) => {
-    set_whatever(location);
-    console.log("whatever", whatever);
-    if (whatever !== undefined) {
-      history.push("/home");
-    }
-    return null;
-  };
+  getMe();
+
+  async function getMe() {
+    await axios
+      .get("https://api.spotify.com/v1/me/top/tracks", {
+        headers: {
+          Authorization: "Bearer" + token,
+        },
+      })
+      .then(function (response) {
+        console.log("top tracks?", response);
+      });
+  }
 
   return (
     <div className="App-header">
       <Switch>
-        <Route path="/home" component={Home} />
-        <Route path="/hello" component={Hello} />
-        <Route path="/login" component={handleCallback} />
-        <Login path="/" props={whatever} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Home} />
       </Switch>
     </div>
   );

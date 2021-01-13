@@ -4,25 +4,34 @@ import "./button.css";
 //import P5sketchComponent from "./p5jsComponent";
 import { useDispatch } from "react-redux";
 import { fetchPlaylist } from "../store/playlist/action";
+import { fetchUserData } from "../store/user/action";
 import ShowData from "./showData";
+import UserData from "./userData";
 
 function Home() {
-  const [props, set_props] = useState(0);
-  const [showbutton, set_showbutton] = useState(false);
+  console.log("hello?");
+  //const [props, set_props] = useState(0);
+  const [showUser, set_showUser] = useState(false);
+  const [showPlaylist, set_showPlaylist] = useState(false);
   const dispatch = useDispatch();
 
-  const fetchings = () => {
+  const fetchingPlaylist = () => {
     console.log("fetching!!");
     dispatch(fetchPlaylist());
-    set_showbutton(true);
+
+    //set_showbutton(true);
   };
 
-  const proppings = () => {
-    set_props(props + 1);
-    set_showbutton(false);
+  const fetchingUser = () => {
+    console.log("fetching!!");
+    dispatch(fetchUserData());
   };
 
-  console.log(props);
+  //   const proppings = () => {
+  //     set_props(props + 1);
+  //     set_showbutton(false);
+  //   };
+
   return (
     <div className="App-header">
       <h2 className="title">
@@ -43,30 +52,30 @@ function Home() {
         {"  "}
         <b> music</b>
       </p>
-      <button
-        className="big-button"
-        onClick={() => {
-          fetchings();
-        }}
-      >
-        <u>fetch playlist</u>
-      </button>
-
-      {/* {showbutton === true ? (
+      <div className="button">
         <button
           className="big-button"
           onClick={() => {
-            proppings();
+            fetchingPlaylist();
+            set_showPlaylist(true);
           }}
         >
-          <u>sprout</u>
+          <u>fetch playlist</u>
         </button>
-      ) : (
-        <div> ... </div>
-      )} */}
+        <button
+          className="big-button"
+          onClick={() => {
+            fetchingUser();
+            set_showUser(true);
+          }}
+        >
+          <u>fetch user</u>
+        </button>
+      </div>
       {/* <P5sketchComponent className="sketch2" props={props} /> */}
       {/* <P5sketchComponent className="sketch" props={props} /> */}
-      <ShowData />
+      {showUser === true ? <UserData /> : <p></p>}
+      {showPlaylist === true ? <ShowData /> : <p></p>}
     </div>
   );
 }

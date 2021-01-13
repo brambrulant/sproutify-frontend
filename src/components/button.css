@@ -34,15 +34,17 @@ button {
   border: 0;
   vertical-align: middle;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--colorShadeA);
   font-weight: 200;
   text-transform: uppercase;
   font-family: inherit;
+  flex-direction: row;
 }
 
 button.big-button {
-  flex-direction: row;
+  padding: 1rem;
+  text-align: center;
   padding: 1em 2em;
   border: 2px solid var(--colorShadeA);
   border-radius: 1em;
