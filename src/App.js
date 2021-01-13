@@ -22,7 +22,7 @@ function App() {
       <Switch>
         <Route path="/home" component={Home} />
         <Route path="/hello" component={Hello} />
-        <Route path="/api/v1/login" component={handleCallback} />
+        <Route path="/login" component={handleCallback} />
         <Login path="/" props={whatever} />
       </Switch>
     </div>
