@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Route, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Login from "./components/login";
 import Home from "./components/home";
 import Hello from "./components/hello";
@@ -19,10 +19,12 @@ function App() {
 
   return (
     <div className="App-header">
-      <Route path="/home" component={Home} />
-      <Route path="/hello" component={Hello} />
-      <Route path="/api/v1/login" component={handleCallback} />
-      <Login path="/" props={whatever} />
+      <Switch>
+        <Route path="/home" component={Home} />
+        <Route path="/hello" component={Hello} />
+        <Route path="/api/v1/login" component={handleCallback} />
+        <Login path="/" props={whatever} />
+      </Switch>
     </div>
   );
 }
