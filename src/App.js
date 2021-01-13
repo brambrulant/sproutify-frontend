@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Route, useHistory } from "react-router-dom";
+import Login from "./components/login";
+import Home from "./components/home";
 
 function App() {
+  const [whatever, set_whatever] = useState();
+  const history = useHistory();
+
+  const handleCallback = ({ location }) => {
+    set_whatever(location);
+    console.log("whatever", whatever);
+    if (whatever !== undefined) {
+      history.push("/home");
+    }
+    return null;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App-header">
+      <Login props={whatever} />
+      <Route exact path="/api/v1/login" component={handleCallback} />
+      <Route exact path="/home" component={Home} />
     </div>
   );
 }
