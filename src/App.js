@@ -19,9 +19,9 @@ function App() {
 
   return (
     <div className="App-header">
+      <Route path="/home" component={Home} />
+      <Route path="/hello" component={Hello} />
       <Route path="/api/v1/login" component={handleCallback} />
-      <Route exact path="/home" component={Home} />
-      <Route exact path="/hello" component={Hello} />
       <Login path="/" props={whatever} />
     </div>
   );
