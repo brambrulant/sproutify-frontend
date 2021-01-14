@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
   return (
-    <a className="login-a" href="http://localhost:4000/login">
+    <a className="login-a" href={process.env.BACKEND_URI}>
       LOGIN
     </a>
   );
