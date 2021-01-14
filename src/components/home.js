@@ -23,7 +23,7 @@ function Home() {
   };
 
   const fetchingUser = () => {
-    console.log("fetching!!");
+    console.log("fetching!!", showUser);
     dispatch(fetchUserData());
   };
 
