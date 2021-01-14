@@ -4,23 +4,22 @@ import { selectPlaylist } from "../store/playlist/selector";
 
 // import sketch2 from "../sketch2.js";
 
-const ShowData = (props) => {
+const PlaylistData = (props) => {
   const playlist = useSelector(selectPlaylist);
   console.log("playlist in showData component", playlist);
+  console.log("loading in showData component", playlist.loading);
 
   return (
     <div>
-      <div>
-        {playlist.loading === false ? (
-          playlist.playlist.tracks.items.map((track) => {
-            return <p key={track.track.id}> {track.track.name} </p>;
-          })
-        ) : (
-          <p></p>
-        )}
-      </div>
+      {playlist.loading === false ? (
+        playlist.playlist.items.map((playlist) => {
+          return <p>{playlist.name}</p>;
+        })
+      ) : (
+        <p>loading... </p>
+      )}
     </div>
   );
 };
 
-export default ShowData;
+export default PlaylistData;
