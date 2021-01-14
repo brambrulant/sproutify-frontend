@@ -3,8 +3,7 @@ import React from "react";
 const Login = () => {
   return (
     <div className="App-header">
-      {/* <a href="https://sproutify-backend.herokuapp.com/login">Login</a> */}
-      <a href="http://localhost:4000/login">
+      <a href={process.env.BACKEND_LOGIN}>
         <button className="big-button">Login</button>
       </a>
     </div>
