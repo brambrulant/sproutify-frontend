@@ -5,8 +5,8 @@ import "./button.css";
 import { useDispatch } from "react-redux";
 import { fetchPlaylist } from "../store/playlist/action";
 import { fetchUserData } from "../store/user/action";
-import ShowData from "./showData";
 import UserData from "./userData";
+import PlaylistData from "./playlistData";
 
 function Home() {
   console.log("hello?");
@@ -75,7 +75,7 @@ function Home() {
       {/* <P5sketchComponent className="sketch2" props={props} /> */}
       {/* <P5sketchComponent className="sketch" props={props} /> */}
       {showUser === true ? <UserData /> : <p></p>}
-      {showPlaylist === true ? <ShowData /> : <p></p>}
+      {showPlaylist === true ? <PlaylistData /> : <p></p>}
     </div>
   );
 }
