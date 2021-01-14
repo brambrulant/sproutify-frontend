@@ -13,7 +13,7 @@ const PlaylistData = (props) => {
     <div>
       {playlist.loading === false ? (
         playlist.playlist.items.map((playlist) => {
-          return <p>{playlist.name}</p>;
+          return <option key={playlist.id}>{playlist.name}</option>;
         })
       ) : (
         <p>loading... </p>
