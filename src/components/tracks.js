@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTracks } from "../store/playlistTracks/selector";
-import { fetchTrackData } from "../store/trackData/action";
+import { fetchTrackAudioFeatures } from "../store/trackData/action";
 import TrackData from "./trackData";
 
 // import sketch2 from "../sketch2.js";
@@ -14,7 +14,7 @@ const Tracks = (id) => {
 
   const onClickHandler = (trackId) => {
     console.log("trackId", trackId);
-    dispatch(fetchTrackData(trackId));
+    dispatch(fetchTrackAudioFeatures(trackId));
   };
 
   return (
