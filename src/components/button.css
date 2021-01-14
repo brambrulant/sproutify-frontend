@@ -1,10 +1,10 @@
 :root {
   /* --backgroundColor: rgba(246, 241, 209); */
-  --colorShadeA: rgb(240, 232, 221);
+  --colorShadeA: rgb(200, 192, 181);
   --colorShadeB: rgb(57, 76, 124);
-  --colorShadeC: rgb(57, 76, 124);
-  --colorShadeD: rgb(57, 76, 124);
-  --colorShadeE: rgb(57, 76, 124);
+  --colorShadeC: rgb(77, 96, 144);
+  --colorShadeD: rgb(97, 116, 164);
+  --colorShadeE: rgb(117, 136, 184);
 }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
@@ -43,10 +43,10 @@ button {
 }
 
 button.big-button {
-  margin: 0.1%;
+  margin: 0.6%;
   padding: 1rem;
   text-align: center;
-  padding: 1em 2em;
+  padding: 0.75em 1em;
   border: 2px solid var(--colorShadeA);
   border-radius: 1em;
   background: var(--colorShadeE);
@@ -72,11 +72,11 @@ button.big-button::before {
 
 button.big-button:focus {
   background: var(--colorShadeD);
-  transform: translate(0, 0.375em);
+  transform: translate(0, -0.375em);
 }
 
 button.big-button:focus::before {
-  transform: translate3d(0, 0.75em, -1em);
+  transform: translate3d(0, 0.25em, -0.5em);
 }
 
 button.big-button:active {
@@ -84,7 +84,7 @@ button.big-button:active {
 }
 
 button.big-button:active::before {
-  transform: translate3d(0, 0, -1em);
+  transform: translate3d(0, 0, -0.5em);
 
   box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
 }
