@@ -8,7 +8,6 @@ import App from "./App";
 import store from "./store";
 
 ReactDOM.render(
-  require("dotenv").config(),
   <Router>
     <Provider store={store}>
       <App />
