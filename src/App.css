@@ -16,6 +16,10 @@
   border: 0;
 }
 
+.App-list {
+  color: rgb(57, 76, 124) !important;
+}
+
 .subtitle {
   margin: 0;
   line-height: 0vh;

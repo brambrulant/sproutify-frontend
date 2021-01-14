@@ -50,7 +50,7 @@ function Home() {
           </i>{" "}
         </small>{" "}
         {"  "}
-        <b> music</b>
+        <b> your spotify behaviour</b>
       </p>
       <div className="button">
         <button
@@ -60,9 +60,9 @@ function Home() {
             set_showPlaylist(true);
           }}
         >
-          <u>fetch playlist</u>
+          <u>fetch your playlists</u>
         </button>
-        <button
+        {/* <button
           className="big-button"
           onClick={() => {
             fetchingUser();
@@ -70,7 +70,7 @@ function Home() {
           }}
         >
           <u>fetch user</u>
-        </button>
+        </button> */}
       </div>
       {/* <P5sketchComponent className="sketch2" props={props} /> */}
       {/* <P5sketchComponent className="sketch" props={props} /> */}
