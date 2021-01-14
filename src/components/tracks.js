@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTracks } from "../store/playlistTracks/selector";
-import { fetchTrackAudioFeatures } from "../store/trackData/action";
+import { fetchTrackData } from "../store/trackData/action";
 import TrackData from "./trackData";
 
 // import sketch2 from "../sketch2.js";
@@ -12,9 +12,9 @@ const Tracks = (id) => {
   console.log("tracks in tracks component", tracks);
   console.log("loading in tracks component", tracks.loading);
 
-  const onClickHandler = (trackId) => {
+  const onClickHandler = (trackId, artistId) => {
     console.log("trackId", trackId);
-    dispatch(fetchTrackAudioFeatures(trackId));
+    dispatch(fetchTrackData(trackId, artistId));
   };
 
   return (
@@ -23,10 +23,12 @@ const Tracks = (id) => {
       {tracks.loading === false ? (
         tracks.tracks.tracks.items.map((track) => {
           return (
-            <ul key={track.track.id}>
+            <ul key={Math.random() * Math.random() * 100000}>
               <button
                 className="big-button"
-                onClick={() => onClickHandler(track.track.id)}
+                onClick={() =>
+                  onClickHandler(track.track.id, track.track.artists[0].id)
+                }
               >
                 {track.track.name}
               </button>
