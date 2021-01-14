@@ -17,7 +17,7 @@ const UserTracks = (id) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1> your 20 most listened tracks of the last 6 months</h1>
       <TrackData />
       {user.loading === false ? (

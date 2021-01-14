@@ -1,7 +1,7 @@
 :root {
   /* --backgroundColor: rgba(246, 241, 209); */
   --colorShadeA: rgb(200, 192, 181);
-  --colorShadeB: rgb(57, 76, 124);
+  --colorShadeB: rgb(67, 86, 134);
   --colorShadeC: rgb(77, 96, 144);
   --colorShadeD: rgb(97, 116, 164);
   --colorShadeE: rgb(117, 136, 184);
@@ -35,7 +35,7 @@ button {
   vertical-align: middle;
   text-decoration: none;
   font-size: 1.2rem;
-  color: var(--colorShadeA);
+  color: rgb(200, 192, 181);
   font-weight: 200;
   text-transform: uppercase;
   font-family: inherit;

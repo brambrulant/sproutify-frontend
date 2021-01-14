@@ -18,7 +18,7 @@ const Tracks = (id) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <TrackData />
       {tracks.loading === false ? (
         tracks.tracks.tracks.items.map((track) => {
