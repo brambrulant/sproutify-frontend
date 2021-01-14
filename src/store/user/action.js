@@ -12,7 +12,7 @@ export const fetchUserData = () => {
   console.log(token);
 
   return async (dispatch) => {
-    axios(`https://api.spotify.com/v1/me`, {
+    axios(`https://api.spotify.com/v1/me/top/tracks`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,

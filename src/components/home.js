@@ -7,6 +7,7 @@ import { fetchPlaylist } from "../store/playlist/action";
 import { fetchUserData } from "../store/user/action";
 import UserData from "./userData";
 import PlaylistData from "./playlistData";
+import Header from "./header";
 
 function Home() {
   console.log("hello?");
@@ -27,50 +28,30 @@ function Home() {
     dispatch(fetchUserData());
   };
 
-  //   const proppings = () => {
-  //     set_props(props + 1);
-  //     set_showbutton(false);
-  //   };
-
   return (
-    <div className="App-header">
-      <h2 className="title">
-        <u>sproutify</u>
-      </h2>
-      <p className="subtitle">
-        <small>
-          <i>
-            <u>fractal </u>
-          </i>{" "}
-        </small>{" "}
-        <b>trees</b>{" "}
-        <small>
-          <i>
-            <u>designed by</u>
-          </i>{" "}
-        </small>{" "}
-        {"  "}
-        <b> your spotify behaviour</b>
-      </p>
+    <div>
+      <Header />
       <div className="button">
         <button
           className="big-button"
           onClick={() => {
             fetchingPlaylist();
             set_showPlaylist(true);
+            set_showUser(false);
           }}
         >
           <u>fetch your playlists</u>
         </button>
-        {/* <button
+        <button
           className="big-button"
           onClick={() => {
             fetchingUser();
             set_showUser(true);
+            set_showPlaylist(false);
           }}
         >
-          <u>fetch user</u>
-        </button> */}
+          <u>fetch your userData</u>
+        </button>
       </div>
       {/* <P5sketchComponent className="sketch2" props={props} /> */}
       {/* <P5sketchComponent className="sketch" props={props} /> */}
