@@ -70,12 +70,12 @@ button.big-button::before {
   transition: all 175ms cubic-bezier(0, 0, 1, 1);
 }
 
-button.big-button:focus {
+button.big-button:active {
   background: var(--colorShadeD);
   transform: translate(0, -0.375em);
 }
 
-button.big-button:focus::before {
+button.big-button:active::before {
   transform: translate3d(0, 0.25em, -0.5em);
 }
 
