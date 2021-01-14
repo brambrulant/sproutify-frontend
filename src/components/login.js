@@ -2,9 +2,9 @@ import React from "react";
 
 const Login = () => {
   return (
-    <a className="login-a" href={process.env.BACKEND_URI}>
-      LOGIN
-    </a>
+    <div>
+      <a href="https://sproutify-backend.herokuapp.com/login">Login</a>
+    </div>
   );
 };
 
