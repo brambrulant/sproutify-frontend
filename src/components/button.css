@@ -39,7 +39,7 @@ button {
   font-weight: 200;
   text-transform: uppercase;
   font-family: inherit;
-  flex-direction: row;
+  flex-direction: column !important;
 }
 
 button.big-button {
@@ -51,6 +51,7 @@ button.big-button {
   background: var(--colorShadeE);
   transform-style: preserve-3d;
   transition: all 175ms cubic-bezier(0, 0, 1, 1);
+  flex-direction: column !important;
 }
 button.big-button::before {
   position: absolute;

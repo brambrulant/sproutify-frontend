@@ -10,10 +10,14 @@ const PlaylistData = (props) => {
   console.log("loading in showData component", playlist.loading);
 
   return (
-    <div>
+    <div className="button">
       {playlist.loading === false ? (
         playlist.playlist.items.map((playlist) => {
-          return <option key={playlist.id}>{playlist.name}</option>;
+          return (
+            <button key={playlist.id} className="big-button">
+              {playlist.name}
+            </button>
+          );
         })
       ) : (
         <p>loading... </p>

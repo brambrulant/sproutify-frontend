@@ -5,12 +5,10 @@ import Home from "./components/home";
 function App() {
   console.log("backend uri?", process.env.BACKEND_URI);
   return (
-    <div className="App-header">
-      <Switch>
-        <Route exact path="/login" component={Login} />
-        <Route path="/" component={Home} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route exact path="/" component={Login} />
+      <Route path="/home" component={Home} />
+    </Switch>
   );
 }
 

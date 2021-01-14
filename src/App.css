@@ -16,10 +16,6 @@
   border: 0;
 }
 
-.button {
-  flex-direction: row;
-}
-
 .subtitle {
   margin: 0;
   line-height: 0vh;
