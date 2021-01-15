@@ -32,7 +32,7 @@ function Home() {
     <div>
       <Header />
       <div className="button">
-        <button
+        {/* <button
           className="big-button"
           onClick={() => {
             fetchingPlaylist();
@@ -41,7 +41,7 @@ function Home() {
           }}
         >
           <u>fetch your playlists</u>
-        </button>
+        </button> */}
         <button
           className="big-button"
           onClick={() => {
@@ -55,8 +55,8 @@ function Home() {
       </div>
       {/* <P5sketchComponent className="sketch2" props={props} /> */}
       {/* <P5sketchComponent className="sketch" props={props} /> */}
-      {showUser === true ? <UserData /> : <p></p>}
-      {showPlaylist === true ? <PlaylistData /> : <p></p>}
+      <UserData />
+      {/* {showPlaylist === true ? <PlaylistData /> : <p></p>} */}
     </div>
   );
 }

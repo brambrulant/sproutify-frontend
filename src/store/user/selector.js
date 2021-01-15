@@ -1,1 +1,1 @@
-export const selectUser = (state) => state.user;
+export const selectUserTracks = (state) => state.userTracks;

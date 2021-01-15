@@ -16,6 +16,9 @@ export const fetchPlaylist = () => {
   return async (dispatch) => {
     axios(`https://api.spotify.com/v1/me/playlists`, {
       method: "GET",
+      params: {
+        limit: 50,
+      },
       headers: {
         Authorization: "Bearer " + token,
       },

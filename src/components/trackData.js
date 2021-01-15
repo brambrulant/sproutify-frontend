@@ -1,54 +1,46 @@
 import { Card } from "react-bootstrap";
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectTrackData } from "../store/trackData/selector";
 
-// import sketch2 from "../sketch2.js";
-
-const TrackData = () => {
-  const trackData = useSelector(selectTrackData);
-  console.log("trackdata in trackdata component", trackData);
-  console.log("loading in tracks component", trackData.loading);
-  console.log(trackData.danceability);
+const TrackData = (track) => {
+  console.log("do i get some props?", track.track);
   return (
     <div>
-      {trackData.loading === false ? (
-        <div>
-          <Card>
-            <ol>
-              <li>acousticness: {trackData.trackData.data.acousticness} </li>
-              <li>danceability: {trackData.trackData.data.danceability}</li>
-              <li>duration_ms: {trackData.trackData.data.duration_ms}</li>
-              <li>energy: {trackData.trackData.data.energy}</li>
-              <li>
-                instrumentalness: {trackData.trackData.data.instrumentalness}
-              </li>
-              <li>key: {trackData.trackData.data.key}</li>
-              <li>liveness: {trackData.trackData.data.liveness}</li>
-              <li>loudness: {trackData.trackData.data.loudness}</li>
-              <li>mode: {trackData.trackData.data.mode}</li>
-              <li>speechiness: {trackData.trackData.data.speechiness}</li>
-              <li>tempo: {trackData.trackData.data.tempo}</li>
-              <li>time_signature: {trackData.trackData.data.time_signature}</li>
-              <li>valence: {trackData.trackData.data.valence}</li>
-              <li>bars: {trackData.trackAnalysis.data.bars.length} </li>
-              <li>beats: {trackData.trackAnalysis.data.beats.length}</li>
-              <li>sections: {trackData.trackAnalysis.data.sections.length}</li>
-              <li>segments: {trackData.trackAnalysis.data.segments.length}</li>
-              <li>tatums: {trackData.trackAnalysis.data.tatums.length}</li>
-              <li>artist: {trackData.trackArtist.data.name} </li>
-              <li>
-                genres:
-                {trackData.trackArtist.data.genres.map((genre) => (
-                  <ul key={genre}>
-                    <li>{genre}</li>
-                  </ul>
-                ))}
-              </li>
-            </ol>
-          </Card>
-        </div>
-      ) : null}
+      <div>
+        <Card>
+          <h3>
+            track: {track.track.name} artist: {track.track.artist.name}{" "}
+          </h3>
+          <ol>
+            <li>acousticness: {track.track.features.acousticness} </li>
+            <li>danceability: {track.track.features.danceability}</li>
+            <li>duration_ms: {track.track.features.duration_ms}</li>
+            <li>energy: {track.track.features.energy}</li>
+            <li>instrumentalness: {track.track.features.instrumentalness}</li>
+            <li>key: {track.track.features.key}</li>
+            <li>liveness: {track.track.features.liveness}</li>
+            <li>loudness: {track.track.features.loudness}</li>
+            <li>mode: {track.track.features.mode}</li>
+            <li>speechiness: {track.track.features.speechiness}</li>
+            <li>tempo: {track.track.features.tempo}</li>
+            <li>time_signature: {track.track.features.time_signature}</li>
+            <li>valence: {track.track.features.valence}</li>
+            <li>bars: {track.track.analysis.bars.length} </li>
+            <li>beats: {track.track.analysis.beats.length}</li>
+            <li>sections: {track.track.analysis.sections.length}</li>
+            <li>segments: {track.track.analysis.segments.length}</li>
+            <li>tatums: {track.track.analysis.tatums.length}</li>
+
+            <li>
+              genres:
+              {track.track.artist.genres.map((genre) => (
+                <ul key={genre}>
+                  <li>{genre}</li>
+                </ul>
+              ))}
+            </li>
+          </ol>
+        </Card>
+      </div>
     </div>
   );
 };
