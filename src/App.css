@@ -9,6 +9,14 @@
   color: rgb(57, 76, 124);
 }
 
+.body {
+  /* flex-direction: row; */
+  align-items: center !important;
+  justify-content: center;
+  margin: 5%;
+  padding: 5%;
+}
+
 .title {
   line-height: 10vh;
   padding-bottom: 0vh;

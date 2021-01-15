@@ -1,23 +1,23 @@
-// import React from "react";
-// import P5Wrapper from "react-p5-wrapper";
-// import { useSelector } from "react-redux";
-// import { selectPlaylist } from "../store/playlist/selector";
+import React from "react";
+import P5Wrapper from "react-p5-wrapper";
+import { useSelector } from "react-redux";
 
-// import sketch from "../sketch.js";
-// // import sketch2 from "../sketch2.js";
+import sketch3 from "../sketch3.js";
+import { selectUserTracks } from "../store/user/selector";
 
-// const P5sketchComponent = (props) => {
-//   const playlist = useSelector(selectPlaylist);
-//   console.log(playlist);
-//   console.log(props.props, "props in component");
+const P5sketchComponent = () => {
+  const tracks = useSelector(selectUserTracks);
 
-//   console.log("rerender?");
-//   return (
-//     <div>
-//       {/* <P5Wrapper sketch={sketch2} rerender={props} /> */}
-//       {/* <P5Wrapper sketch={sketch} playlist={playlist} rerender={props} /> */}
-//     </div>
-//   );
-// };
+  //console.log("tracks in p5sketchComponent wrapper thing?", tracks);
+  return (
+    <div>
+      {/* <P5Wrapper sketch={sketch2} rerender={props} /> */}
+      {/* <P5Wrapper sketch={sketch} playlist={playlist} rerender={props} /> */}
+      {tracks.loading === false ? (
+        <P5Wrapper sketch={sketch3} tracks={tracks.userTracks} />
+      ) : null}
+    </div>
+  );
+};
 
-// export default P5sketchComponent;
+export default P5sketchComponent;

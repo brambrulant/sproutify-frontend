@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../App.css";
 import "./button.css";
 //import P5sketchComponent from "./p5jsComponent";
@@ -23,16 +23,17 @@ function Home() {
     //set_showbutton(true);
   };
 
-  const fetchingUser = () => {
-    console.log("fetching!!", showUser);
+  useEffect(() => {
     dispatch(fetchUserData());
-  };
+  }, []);
 
   return (
     <div>
       <Header />
-      <div className="button">
-        {/* <button
+      <div className="body">
+        <div className="button">
+          <h3>Dots based on your top 20 listened tracks</h3>
+          {/* <button
           className="big-button"
           onClick={() => {
             fetchingPlaylist();
@@ -42,21 +43,22 @@ function Home() {
         >
           <u>fetch your playlists</u>
         </button> */}
-        <button
-          className="big-button"
-          onClick={() => {
-            fetchingUser();
-            set_showUser(true);
-            set_showPlaylist(false);
-          }}
-        >
-          <u>fetch your userData</u>
-        </button>
+          {/* <button
+            className="big-button"
+            onClick={() => {
+              fetchingUser();
+              set_showUser(true);
+              set_showPlaylist(false);
+            }}
+          >
+            <u>fetch your userData</u>
+          </button>*/}
+        </div>
+        {/* <P5sketchComponent className="sketch2" props={props} /> */}
+        {/* <P5sketchComponent className="sketch" props={props} /> */}
+        <UserData />
+        {/* {showPlaylist === true ? <PlaylistData /> : <p></p>} */}
       </div>
-      {/* <P5sketchComponent className="sketch2" props={props} /> */}
-      {/* <P5sketchComponent className="sketch" props={props} /> */}
-      <UserData />
-      {/* {showPlaylist === true ? <PlaylistData /> : <p></p>} */}
     </div>
   );
 }

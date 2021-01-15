@@ -2,7 +2,7 @@ import { Card } from "react-bootstrap";
 import React from "react";
 
 const TrackData = (track) => {
-  console.log("do i get some props?", track.track);
+  // console.log("do i get some props?", track.track);
   return (
     <div>
       <div>
