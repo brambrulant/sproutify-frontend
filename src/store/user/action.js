@@ -29,7 +29,7 @@ export const fetchUserData = () => {
     const headerWithParams = {
       method: "GET",
       params: {
-        limit: 50,
+        limit: 10,
       },
       headers: {
         Authorization: "Bearer " + token,
@@ -60,7 +60,7 @@ export const fetchUserData = () => {
             // console.log("for loop axios", response.data);
             array.length === 3
               ? dispatch(fetchTrackDataSucces(track.name, array))
-              : console.log("not 3 yet");
+              : console.log();
           } catch (e) {
             console.log(e);
           }

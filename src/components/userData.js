@@ -17,7 +17,7 @@ const UserData = () => {
         <div>
           <P5sketchComponent className="sketch2" />
           {state.userTracks.map((track) => {
-            console.log("blabdieliablija", track);
+            //console.log("blabdieliablija", track);
             return <TrackData track={track} />;
           })}
         </div>
