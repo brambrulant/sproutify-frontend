@@ -12,11 +12,25 @@ export default function sketch(p) {
     console.log("does this work?", tracks.tracks);
     if (tracks.tracks.length > 5) {
       tracks.tracks.map((track) => {
-        const x = p.map(track.analysis.beats.length, 0, 1200, 0, width);
-        const y = p.map(track.analysis.segments.length, 0, 3000, 0, height / 2);
-        const circleWidth = p.map(track.analysis.bars.length, 0, 300, 1, 10);
+        const beats = p.map(track.analysis.beats.length, 0, 1200, 0, width);
+        const segments = p.map(
+          track.analysis.segments.length,
+          0,
+          3000,
+          0,
+          height / 2
+        );
+        const bars = p.map(track.analysis.bars.length, 0, 300, 1, 50);
+        const red = p.map(track.features.instrumentalness, 0, 1, 0, 255);
+        const green = p.map(track.features.acousticness, 0, 1, 0, 255);
+        const blue = p.map(track.features.valence, 0, 1, 255, 0);
+        const danceAbility = p.map(track.features.danceability, 0, 1, 0, 1);
+        const energy = p.map(track.features.energy, 0, 1, 0, 255);
 
-        p.circle(x, y, circleWidth);
+        p.fill(red, green, blue, energy);
+        console.log("hello!", beats, segments);
+        p.circle(beats, segments, bars);
+        //p.text(track.name, i + 100, height / 2);
       });
     }
   };
