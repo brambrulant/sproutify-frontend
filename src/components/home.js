@@ -32,7 +32,7 @@ function Home() {
       <Header />
       <div className="body">
         <div className="button">
-          <h3>Dots based on your top 20 listened tracks</h3>
+          <h3>Tree based on your top 50 listened tracks</h3>
           {/* <button
           className="big-button"
           onClick={() => {

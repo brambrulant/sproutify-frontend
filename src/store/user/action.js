@@ -29,7 +29,7 @@ export const fetchUserData = () => {
     const headerWithParams = {
       method: "GET",
       params: {
-        limit: 10,
+        limit: 50,
       },
       headers: {
         Authorization: "Bearer " + token,

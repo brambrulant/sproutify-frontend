@@ -1,7 +1,7 @@
 export default function sketch4(p) {
   const width = 1400; // declare width of canvas
   const height = 800; // declare height of canvas
-  let angle, average;
+  let angle;
 
   p.setup = function (props) {
     p.createCanvas(width, height);
@@ -12,7 +12,7 @@ export default function sketch4(p) {
   };
 
   p.myCustomRedrawAccordingToNewPropsHandler = function (tracks) {
-    if (tracks.tracks.length === 10) {
+    if (tracks.tracks.length === 50) {
       console.log(tracks.tracks);
       let total = 0;
       for (let i = 0; i < tracks.tracks.length; i++) {
@@ -20,13 +20,15 @@ export default function sketch4(p) {
       }
       angle = total / tracks.tracks.length;
       console.log("average", angle);
+      p.tree(width / 2, height, 300, angle, 0.5, 3, 0);
+      p.noLoop();
+    } else {
     }
   };
 
   p.draw = function () {
     p.translate(width / 2, height);
-    p.fill(0);
-    p.tree(width / 2, height, 300, angle, 0.5, 3, 0);
+    p.fill(255);
   };
 
   p.tree = function (x, y, len, angle, scl, n, startingColor) {
