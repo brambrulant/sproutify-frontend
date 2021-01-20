@@ -5,10 +5,11 @@ export default function sketch4(p) {
   let thickness;
   let n;
   let len = 0;
-  let newLen = 0;
   let scl;
   let r, g, b;
-  let c1, c2;
+  let xoff = 0;
+  let inc;
+  let yoff = 0;
   let bgColor = 0;
   let totalBars = 0;
   let totalEnergy = 0;
@@ -19,19 +20,20 @@ export default function sketch4(p) {
   let totalG = 0;
   let totalB = 0;
   let totalMode = 0;
+  let totalDance = 0;
 
   p.setup = function (props) {
     p.createCanvas(width, height);
-    //p.background(240, 232, 221);
-    p.stroke(255);
     p.background(240, 232, 221);
+    p.stroke(255);
+
     // angle = p.random() * 180;
   };
 
   p.myCustomRedrawAccordingToNewPropsHandler = function (tracks) {
-    p.background(0);
+    // p.background(0);
     for (let j = 0; j < tracks.tracks.length; j++) {}
-    if (tracks.tracks.length === 50) {
+    if (tracks.tracks.length === 20) {
       console.log(tracks.tracks);
 
       for (let i = 0; i < tracks.tracks.length; i++) {
@@ -44,16 +46,19 @@ export default function sketch4(p) {
         totalG += tracks.tracks[i].features.valence;
         totalB += tracks.tracks[i].features.acousticness;
         totalMode += tracks.tracks[i].features.mode;
+        totalDance = tracks.tracks[i].features.danceability;
       }
-      angle = p.map(totalBars / tracks.tracks.length, 0, 400, 0, 360);
+      angle = p.map(totalBars / tracks.tracks.length, 0, 400, 100, 180);
       thickness = p.map(totalEnergy / tracks.tracks.length, 0, 1, 1, 10);
-      n = p.map(totalInstrumentalness / tracks.tracks.length, 0, 1, 1, 5);
+      n = p.map(totalInstrumentalness / tracks.tracks.length, 0, 1, 3, 6);
+
       //len = p.map(totalDuration / tracks.tracks.length, 0, 600000, 0, 1);
       len = 0;
-      scl = p.map(totalSections / tracks.tracks.length, 0, 30, 0.4, 0.6);
-      r = p.map(totalR / tracks.tracks.length, 0, 1, 0, 122);
-      g = p.map(totalG / tracks.tracks.length, 0, 1, 0, 122);
-      b = p.map(totalB / tracks.tracks.length, 0, 1, 122, 0);
+      scl = p.map(totalSections / tracks.tracks.length, 0, 100, 0.5, 0.8);
+      r = p.map(totalR / tracks.tracks.length, 0, 1, 0, 255);
+      g = p.map(totalG / tracks.tracks.length, 0, 1, 255, 0);
+      b = p.map(totalB / tracks.tracks.length, 0, 1, 0, 255);
+      inc = p.map(totalDance / tracks.tracks.length, 0, 1, 0, 0.3);
 
       if (parseInt(totalMode / tracks.tracks.length) === 0) {
         bgColor = 0;
@@ -74,6 +79,7 @@ export default function sketch4(p) {
       console.log("average no. of bars => angle", angle);
       console.log("average no. of energy => thickness", thickness);
       console.log("average no. of instruments => n", n);
+      console.log("average no. of danceability => n", inc);
       console.log("average length of track => len", len);
       console.log("average no. of sections => scl", scl);
       console.log("r,g,b", r, g, b);
@@ -92,9 +98,12 @@ export default function sketch4(p) {
   };
 
   p.draw = function () {
-    p.background(bgColor);
+    for (let y = 0; y < height; y++) {
+      p.background(r / y, g / y, b / y);
+    }
+
     p.fill(125);
-    len = len + 0.2;
+
     p.text(
       `avg no. of bars: ${totalBars},
     avg no. of sections: ${totalSections} 
@@ -111,24 +120,32 @@ export default function sketch4(p) {
       height
     );
     p.translate(width / 2, height);
-    p.tree(width / 2, height, len, angle, scl, n, thickness, 0);
-    //console.log("what's len", len);
+    p.tree(width / 2, height, len, angle, scl, n, thickness, r, g, b);
+    // console.log("what's len", len);
     if (len > 600) {
-      p.noLoop();
+      len = len + 0;
       console.log("stop loop!");
+    } else {
+      len = len + 0.3;
     }
   };
 
-  p.tree = function (x, y, len, angle, scl, n, thickness, startingColor) {
-    p.stroke(startingColor, 100, 100);
+  p.tree = function (x, y, len, angle, scl, n, thickness, r, g, b) {
+    p.stroke(r, g, b);
     p.strokeWeight(thickness);
     p.line(0, 0, 0, -len);
     p.translate(0, -len);
-    if (len > 40) {
-      newLen = newLen + 0.5;
+    console.log(r, g, b);
+    if (len > 100) {
       for (let i = 0; i < n; i++) {
+        //theta = p.map(p.noise(xoff, yoff), 0, 1, 120, 180);
+        xoff = xoff + inc;
+        let theta = p.map(p.noise(xoff), 0, 1, 0, 1);
+        //console.log("whats theta, xoff, inc", theta, xoff, inc);
         p.push();
-        p.rotate(-angle + (2 * angle * i) / (n - 1));
+        p.rotate(-angle + (angle + i) / n);
+        //p.rotate(theta);
+        //p.rotate(p.PI + theta);
         p.tree(
           0,
           0,
@@ -137,7 +154,9 @@ export default function sketch4(p) {
           scl,
           n,
           thickness * 0.8,
-          startingColor + 20
+          r + r / 4,
+          g - g / 4,
+          b + b / 4
         );
         p.pop();
       }
