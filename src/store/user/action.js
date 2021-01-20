@@ -9,6 +9,10 @@ export const fetchTrackDataSucces = (track, data) => ({
   analysis: data[1].data,
   artist: data[2].data,
 });
+export const setUserStore = () => ({
+  type: "userTracks/setStore",
+  set: true,
+});
 
 export const setLoading = (loading) => ({
   type: "userTracks/setLoading",

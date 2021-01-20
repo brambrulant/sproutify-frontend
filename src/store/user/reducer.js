@@ -35,6 +35,13 @@ export default (state = initialState, action) => {
           },
         ],
       };
+    case "userTracks/setStore":
+      //console.log(action.payload);
+      return {
+        ...state,
+        loading: true,
+        userTracks: [],
+      };
 
     default:
       return state;
