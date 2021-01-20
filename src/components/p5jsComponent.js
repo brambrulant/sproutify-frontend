@@ -10,7 +10,7 @@ import { selectUserTracks } from "../store/user/selector";
 const P5sketchComponent = (object) => {
   const tracks = useSelector(selectUserTracks);
 
-  console.log("what a show", object);
+  console.log("what a show", tracks);
   return (
     <div>
       {/* <P5Wrapper sketch={sketch2} rerender={props} /> */}
@@ -25,11 +25,12 @@ const P5sketchComponent = (object) => {
         />
       ) : (
         <div>
-          {object.props.show ? (
+          {tracks.loading === false ? (
             <div>
               <p>getting your your {object.props.value} favourite tracks</p>
               <ProgressBar
                 max={object.props.value}
+                animated
                 now={tracks.userTracks.length}
                 label={`${Math.round(
                   (tracks.userTracks.length / object.props.value) * 100

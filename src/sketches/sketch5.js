@@ -3,7 +3,7 @@ export default function Sketch5(p) {
   let ang = p.PI / 6;
   let h;
   let l;
-  let width = 1000;
+  let width = 1400;
   let height = 800;
   let tracks = [];
   let tree = 0;
@@ -53,19 +53,31 @@ export default function Sketch5(p) {
     console.log("spring or autumn", season);
     if (day === 0) {
       p.background(55);
+      for (let i = 0; i < 200; i++) {
+        p.strokeWeight(p.random(1, 3));
+        p.stroke(255, p.random(50, 250));
+        p.point(p.random(0, width), p.random(0, height / 2));
+      }
     } else if (day === 1) {
       p.background(206, 232, 240);
+      p.fill(246, 134, 86);
+      p.circle(p.random(80, width - 80), 90, 80);
     }
     p.push();
-    p.translate(0, height * 0.9);
+    p.translate(width / 2, height);
     for (let i = 0; i < tracks.length; i++) {
-      l = p.map(tracks[i].features.energy, 0, 1, 50, 200);
-      yloc = p.map(tracks[i].features.acousticness, 0, 1, -10, 10);
-      xloc = p.map(tracks[i].features.key, 0, 11, -10, 100);
-      xloc > width * 0.9
-        ? p.translate(-width * 0.85, 0)
-        : p.translate(xloc, yloc);
+      l = p.map(tracks[i].features.energy, 0, 1, 20, 180);
+      yloc = p.map(tracks[i].features.acousticness, 0, 1, -100, 0);
+      xloc = p.map(
+        tracks[i].features.danceability,
+        0,
+        1,
+        -width / 2,
+        width / 2
+      );
       p.push();
+      p.translate(xloc, yloc);
+
       console.log(i, xloc, yloc);
       p.branch(l);
 
@@ -76,7 +88,7 @@ export default function Sketch5(p) {
       //p.translate(0, yloc * -yloc);
       p.line(0, 0, 0, 0);
       //   p.translate(0, -yloc);
-      p.text(i + 1, 0, 0, 100, 100);
+      p.text(i + 1, 0, yloc, 100, 100);
       p.pop();
       tree = tree + 1;
     }
@@ -107,13 +119,13 @@ export default function Sketch5(p) {
     if (l > 1) {
       p.push();
       p.rotate((ang * 9) / l);
-      let multi = p.random(0.2, 0.7);
+      let multi = p.random(0.4, 0.9);
 
       p.branch(l * multi);
       p.pop();
       p.push();
       p.rotate((-ang * 9) / l);
-      multi = p.random(0.2, 0.7);
+      multi = p.random(0.4, 0.9);
 
       p.branch(l * multi);
       p.pop();

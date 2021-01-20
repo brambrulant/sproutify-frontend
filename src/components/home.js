@@ -5,6 +5,7 @@ import "./button.css";
 import { useDispatch } from "react-redux";
 import { fetchPlaylist } from "../store/playlist/action";
 import { fetchUserData } from "../store/user/action";
+import { setUserStore } from "../store/user/action";
 import UserData from "./userData";
 import PlaylistData from "./playlistData";
 import Header from "./header";
@@ -28,6 +29,7 @@ function Home() {
 
   const onSubmitHandler = (value, timeRange) => {
     console.log("BUTTONCLICK!", timeRange);
+    dispatch(setUserStore());
     dispatch(fetchUserData(value, timeRange));
     setShow(true);
   };
