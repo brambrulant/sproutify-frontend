@@ -8,12 +8,15 @@ import { fetchUserData } from "../store/user/action";
 import UserData from "./userData";
 import PlaylistData from "./playlistData";
 import Header from "./header";
+import P5sketchComponent from "./p5jsComponent";
+import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
+import RangeSlider from "react-bootstrap-range-slider";
 
 function Home() {
   console.log("hello?");
   //const [props, set_props] = useState(0);
-  const [showUser, set_showUser] = useState(false);
-  const [showPlaylist, set_showPlaylist] = useState(false);
+  const [value, setValue] = useState(20);
+  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
 
   const fetchingPlaylist = () => {
@@ -23,16 +26,17 @@ function Home() {
     //set_showbutton(true);
   };
 
-  useEffect(() => {
-    dispatch(fetchUserData());
-  }, []);
+  const onSubmitHandler = (value, timeRange) => {
+    console.log("BUTTONCLICK!", timeRange);
+    dispatch(fetchUserData(value, timeRange));
+    setShow(true);
+  };
 
   return (
     <div>
       <Header />
       <div className="body">
         <div className="button">
-          <h3>Tree based on your top 50 listened tracks</h3>
           {/* <button
           className="big-button"
           onClick={() => {
@@ -43,21 +47,38 @@ function Home() {
         >
           <u>fetch your playlists</u>
         </button> */}
-          {/* <button
+          <p>select the number of songs from 0 to 50</p>
+          <RangeSlider
+            min={1}
+            max={50}
+            value={value}
+            onChange={(e) => setValue(parseInt(e.target.value))}
+          />
+          <p>select timerange</p>
+          <button
             className="big-button"
-            onClick={() => {
-              fetchingUser();
-              set_showUser(true);
-              set_showPlaylist(false);
-            }}
+            onClick={() => onSubmitHandler(value, "short_term")}
           >
-            <u>fetch your userData</u>
-          </button>*/}
+            last 4 weeks
+          </button>
+          <button
+            className="big-button"
+            onClick={() => onSubmitHandler(value, "medium_term")}
+          >
+            last 6 months
+          </button>
+          <button
+            className="big-button"
+            onClick={() => onSubmitHandler(value, "long_term")}
+          >
+            all time
+          </button>
         </div>
         {/* <P5sketchComponent className="sketch2" props={props} /> */}
         {/* <P5sketchComponent className="sketch" props={props} /> */}
-        <UserData />
+        {/* <UserData /> */}
         {/* {showPlaylist === true ? <PlaylistData /> : <p></p>} */}
+        <P5sketchComponent props={{ value: value, show: show }} />
       </div>
     </div>
   );

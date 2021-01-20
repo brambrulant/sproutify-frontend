@@ -15,10 +15,10 @@ export const setLoading = (loading) => ({
   payload: loading,
 });
 
-export const fetchUserData = () => {
+export const fetchUserData = (limit, timeRange) => {
   const query = queryString.parse(window.location.search);
   const token = query["?access_token"];
-
+  console.log("do i fetch already?", limit, timeRange);
   return async (dispatch) => {
     const header = {
       method: "GET",
@@ -29,7 +29,8 @@ export const fetchUserData = () => {
     const headerWithParams = {
       method: "GET",
       params: {
-        limit: 50,
+        time_range: `${timeRange}`,
+        limit: limit,
       },
       headers: {
         Authorization: "Bearer " + token,
