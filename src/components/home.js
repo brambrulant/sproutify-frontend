@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../App.css";
 import "./button.css";
+import "./slider.css";
 //import P5sketchComponent from "./p5jsComponent";
 import { useDispatch } from "react-redux";
 import { fetchPlaylist } from "../store/playlist/action";
@@ -49,13 +50,28 @@ function Home() {
         >
           <u>fetch your playlists</u>
         </button> */}
-          <p>select the number of songs from 0 to 50</p>
-          <RangeSlider
+          <p>
+            select the number of songs{" "}
+            <card className="small-button">{value}</card>
+          </p>
+          {/* <RangeSlider
             min={1}
             max={50}
             value={value}
             onChange={(e) => setValue(parseInt(e.target.value))}
-          />
+            style={{ color: "#00005c" }}
+          /> */}
+          <div class="slidecontainer">
+            <input
+              type="range"
+              min={1}
+              max={50}
+              value={value}
+              onChange={(e) => setValue(parseInt(e.target.value))}
+              class="slider"
+              id="myRange"
+            />
+          </div>
           <p>select timerange</p>
           <button
             className="big-button"
@@ -80,7 +96,10 @@ function Home() {
         {/* <P5sketchComponent className="sketch" props={props} /> */}
         {/* <UserData /> */}
         {/* {showPlaylist === true ? <PlaylistData /> : <p></p>} */}
-        <P5sketchComponent props={{ value: value, show: show }} />
+        <P5sketchComponent
+          props={{ value: value, show: show }}
+          className="sketch"
+        />
       </div>
     </div>
   );
