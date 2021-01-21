@@ -38,6 +38,7 @@ export default function Sketch5(p) {
     console.log("value of selectedTracks", props.props.selectedTracks);
     if (tracks.length === selectedTracks) {
       for (let i = 0; i < tracks.length; i++) {
+        //calculate averages to determine season or day
         day = Math.round(tracks[i].features.mode / tracks.length);
         season = Math.round(tracks[i].features.valence / tracks.length);
         stars = stars + tracks[i].analysis.sections.length;
@@ -107,7 +108,7 @@ export default function Sketch5(p) {
       p.textSize(10);
       //p.translate(0, yloc * -yloc);
       p.line(0, 0, 0, 0);
-      //   p.translate(0, -yloc);
+      p.translate(0, -p.map(tracks[i].features.acousticness, 0, 1, -100, 0));
       p.text(i + 1, 0, 0, 100, 100);
       p.pop();
       tree = tree + 1;

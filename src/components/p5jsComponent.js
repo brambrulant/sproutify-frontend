@@ -7,6 +7,7 @@ import "./p5Component.css";
 //import sketch3 from "../sketch3.js";
 import Sketch5 from "../sketches/sketch5.js";
 import { selectUserTracks } from "../store/user/selector";
+import TrackData from "./trackData";
 
 const P5sketchComponent = (object) => {
   const tracks = useSelector(selectUserTracks);
@@ -30,9 +31,9 @@ const P5sketchComponent = (object) => {
               selectedTracks: object.props.value,
             }}
           />
-          <button className="big-button" onClick={() => getInfo()}>
-            ?
-          </button>
+          {tracks.userTracks.map((track, index) => {
+            return <TrackData props={{ track: track, index: index }} />;
+          })}
         </div>
       ) : (
         <div>

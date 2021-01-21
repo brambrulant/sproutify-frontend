@@ -2,15 +2,16 @@ import { Card } from "react-bootstrap";
 import React from "react";
 
 const TrackData = (track) => {
-  // console.log("do i get some props?", track.track);
+  console.log("do i get some index numbers?", track);
   return (
     <div>
       <div>
         <Card>
           <h3>
-            track: {track.track.name} artist: {track.track.artist.name}{" "}
+            {track.props.index + 1}: {track.props.track.name} by{" "}
+            {track.props.track.artist.name}{" "}
           </h3>
-          <ol>
+          {/* <ol>
             <li>acousticness: {track.track.features.acousticness} </li>
             <li>danceability: {track.track.features.danceability}</li>
             <li>duration_ms: {track.track.features.duration_ms}</li>
@@ -38,7 +39,7 @@ const TrackData = (track) => {
                 </ul>
               ))}
             </li>
-          </ol>
+          </ol> */}
         </Card>
       </div>
     </div>
