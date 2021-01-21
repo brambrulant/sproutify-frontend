@@ -31,16 +31,29 @@ button {
   display: inline-block;
   cursor: pointer;
   outline: none;
-  border: 0;
+  border: 0%;
   vertical-align: middle;
   text-decoration: none;
-  font-size: 1.2rem;
   color: rgb(200, 192, 181);
-  font-weight: 200;
+  /* font-weight: 200; */
   text-transform: uppercase;
   font-family: inherit;
   margin-bottom: 4%;
   /* flex-direction: column !important; */
+}
+
+.small-button {
+  width: 50%;
+  height: 50%;
+  margin: 0.3%;
+  margin-bottom: 4%;
+  padding: 8%;
+  text-align: center;
+  padding: 0.75em 1em;
+  border: 2px solid var(--colorShadeA);
+  border-radius: 0.3em;
+  background: var(--colorShadeE);
+  color: rgb(200, 192, 181);
 }
 
 button.big-button {

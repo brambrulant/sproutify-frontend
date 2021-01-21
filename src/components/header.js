@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -6,7 +7,7 @@ const Header = () => {
       <h2 className="title">
         <u>
           {" "}
-          <a href="/">sproutify</a>
+          <h1 href="/">sproutify</h1>
         </u>
       </h2>
       <p className="subtitle">
