@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# SPROUTIFY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sproutify is an app which visualizes your spotify behaviour. Your most listened tracks of a selected timerange will draw a landscape filled with fractal trees.
 
-## Available Scripts
+Day or night is determined by the amount of tracks in major or minor. Spring or autumn represents more cheerful songs or melancholic songs. Each tree represents one track. The anatomy of the tree is determined by a few factors. Big trees are more energetic tracks. The number of recursions is dependent on the amount of bars. Trees on the right are more instrumental and the trees higher up in the mountains, are more acoustic tracks.
 
-In the project directory, you can run:
+Check it out here [SPROUTIFY](https://sproutify.netlify.app/)
 
-### `yarn start`
+The fractal trees are based on Daniel Shiffman's book [The Nature of Code](https://natureofcode.com/book/chapter-8-fractals/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Technologies and concepts I used in this project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ReactJs
+Redux
+Express
+REST API
+OAuth
+Sequelize as ORM
+P5.js
 
-### `yarn test`
+# Userstories
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+☑️ As a user: I can login with my Spotify account
+☑️ As a user: I can draw fractal trees based on my Spotify behaviour
+☐ As a user: I can save my image in my account
+☐ As a user: I can select one of my playlists and draw a fractal tree of that playlist
+☐ As a user: I can upload the playlist tree as my playlist cover in Spotify
 
-### `yarn build`
+# Links
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Project Board](https://github.com/brambrulant/sproutify-frontend/projects/1)
+[Wireframe](https://wireframepro.mockflow.com/view/Mc23e8bffaf7df717d4c67f7a3a8927781610456322725)
+[Backend repository](https://github.com/brambrulant/sproutify-backend)

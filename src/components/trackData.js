@@ -49,7 +49,7 @@ const TrackData = (track) => {
     case 1:
       season = "spring";
       valence = "cheerful";
-      stars = "birds";
+      stars = "stars";
       break;
     default:
   }
