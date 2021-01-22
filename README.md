@@ -8,6 +8,8 @@ Check it out here [SPROUTIFY](https://sproutify.netlify.app/)
 
 ![example] (https://github.com/brambrulant/sproutify-frontend/blob/main/src/sproutify-example.png)
 
+![example](https://github.com/brambrulant/sproutify-frontend/blob/main/src/sproutify-example.png)
+
 The fractal trees are based on Daniel Shiffman's book [The Nature of Code](https://natureofcode.com/book/chapter-8-fractals/)
 
 # Technologies and concepts I used in this project
