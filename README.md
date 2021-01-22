@@ -10,24 +10,24 @@ The fractal trees are based on Daniel Shiffman's book [The Nature of Code](https
 
 # Technologies and concepts I used in this project
 
-ReactJs
-Redux
-Express
-REST API
-OAuth
-Sequelize as ORM
-P5.js
+- ReactJs
+- Redux
+- Express
+- REST API
+- OAuth
+- Sequelize as ORM
+- P5.js
 
 # Userstories
 
-☑️ As a user: I can login with my Spotify account
-☑️ As a user: I can draw fractal trees based on my Spotify behaviour
-☐ As a user: I can save my image in my account
-☐ As a user: I can select one of my playlists and draw a fractal tree of that playlist
-☐ As a user: I can upload the playlist tree as my playlist cover in Spotify
+- ☑️ As a user: I can login with my Spotify account.
+- ☑️ As a user: I can draw fractal trees based on my Spotify behaviour.
+- ☐ As a user: I can save my image in my account.
+- ☐ As a user: I can select one of my playlists and draw a fractal tree of that playlist.
+- ☐ As a user: I can upload the playlist tree as my playlist cover in Spotify.
 
 # Links
 
-[Project Board](https://github.com/brambrulant/sproutify-frontend/projects/1)
-[Wireframe](https://wireframepro.mockflow.com/view/Mc23e8bffaf7df717d4c67f7a3a8927781610456322725)
-[Backend repository](https://github.com/brambrulant/sproutify-backend)
+- [Project Board](https://github.com/brambrulant/sproutify-frontend/projects/1)
+- [Wireframe](https://wireframepro.mockflow.com/view/Mc23e8bffaf7df717d4c67f7a3a8927781610456322725)
+- [Backend repository](https://github.com/brambrulant/sproutify-backend)
