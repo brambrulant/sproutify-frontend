@@ -1,5 +1,5 @@
 const initialState = {
-  loading: true,
+  // loading: false,
   userTracks: [],
 };
 
@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
       //console.log(action.payload);
       return {
         ...state,
-        loading: false,
+        loading: true,
         userTracks: [
           ...state.userTracks,
           {
@@ -41,6 +41,13 @@ export default (state = initialState, action) => {
         ...state,
         loading: true,
         userTracks: [],
+      };
+
+    case "userTracks/setLoading":
+      return {
+        ...state,
+        loading: false,
+        userTracks: [...state.userTracks],
       };
 
     default:

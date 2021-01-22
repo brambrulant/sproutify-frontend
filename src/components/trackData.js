@@ -1,48 +1,74 @@
 import { Card } from "react-bootstrap";
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectUserTracks } from "../store/user/selector";
 
 const TrackData = (track) => {
-  console.log("do i get some index numbers?", track);
-  return (
-    <div>
-      <div>
-        <Card>
-          <h3>
-            {track.props.index + 1}: {track.props.track.name} by{" "}
-            {track.props.track.artist.name}{" "}
-          </h3>
-          {/* <ol>
-            <li>acousticness: {track.track.features.acousticness} </li>
-            <li>danceability: {track.track.features.danceability}</li>
-            <li>duration_ms: {track.track.features.duration_ms}</li>
-            <li>energy: {track.track.features.energy}</li>
-            <li>instrumentalness: {track.track.features.instrumentalness}</li>
-            <li>key: {track.track.features.key}</li>
-            <li>liveness: {track.track.features.liveness}</li>
-            <li>loudness: {track.track.features.loudness}</li>
-            <li>mode: {track.track.features.mode}</li>
-            <li>speechiness: {track.track.features.speechiness}</li>
-            <li>tempo: {track.track.features.tempo}</li>
-            <li>time_signature: {track.track.features.time_signature}</li>
-            <li>valence: {track.track.features.valence}</li>
-            <li>bars: {track.track.analysis.bars.length} </li>
-            <li>beats: {track.track.analysis.beats.length}</li>
-            <li>sections: {track.track.analysis.sections.length}</li>
-            <li>segments: {track.track.analysis.segments.length}</li>
-            <li>tatums: {track.track.analysis.tatums.length}</li>
+  const tracks = useSelector(selectUserTracks);
 
-            <li>
-              genres:
-              {track.track.artist.genres.map((genre) => (
-                <ul key={genre}>
-                  <li>{genre}</li>
-                </ul>
-              ))}
-            </li>
-          </ol> */}
-        </Card>
-      </div>
-    </div>
+  console.log("do i get some index numbers?", tracks);
+
+  const onClickHandler = (index) => {};
+
+  let totalMode = 0;
+  let day = "";
+  let mode = "";
+  let stars = "";
+  for (let i = 0; i < tracks.userTracks.length; i++) {
+    totalMode += tracks.userTracks[i].features.mode;
+  }
+  const modeavg = Math.round(totalMode / tracks.userTracks.length);
+
+  switch (modeavg) {
+    case 0:
+      day = "night";
+      mode = "minor";
+      break;
+    case 1:
+      day = "daytime";
+      mode = "major";
+      break;
+    default:
+  }
+  let totalValence = 0;
+  let season = "";
+  let valence = "";
+  let amount = 0;
+  for (let i = 0; i < tracks.userTracks.length; i++) {
+    totalValence += tracks.userTracks[i].features.valence;
+    amount += tracks.userTracks[i].analysis.sections.length;
+  }
+  const valenceAvg = Math.round(totalValence / tracks.userTracks.length);
+
+  switch (valenceAvg) {
+    case 0:
+      season = "autumn";
+      valence = "meloncholic";
+      stars = "stars";
+      break;
+    case 1:
+      season = "spring";
+      valence = "cheerful";
+      stars = "birds";
+      break;
+    default:
+  }
+  console.log("valence", valenceAvg, season, valence);
+  return (
+    <card className="track-data">
+      it's <i>{day}</i> because you tend to listen to songs in <i>{mode}</i>.
+      and it's <i>{season}</i> because you've listened to more <i>{valence}</i>{" "}
+      songs. There are{" "}
+      <i>
+        {amount} {stars}
+      </i>{" "}
+      based on the amount of sections these songs have combined. Each tree
+      represents one track. The numbers are corresponding with the list below.
+      the anatomy of the tree is determined by a few factors. Big trees are more
+      energetic tracks. The number of recursions is dependent on the amount of
+      bars. Trees on the right are more instrumental and the trees higher up in
+      the mountains, are more acoustic tracks.
+    </card>
   );
 };
 

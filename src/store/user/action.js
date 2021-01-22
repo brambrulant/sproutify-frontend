@@ -14,9 +14,8 @@ export const setUserStore = () => ({
   set: true,
 });
 
-export const setLoading = (loading) => ({
+export const setLoading = () => ({
   type: "userTracks/setLoading",
-  payload: loading,
 });
 
 export const fetchUserData = (limit, timeRange) => {
@@ -63,9 +62,13 @@ export const fetchUserData = (limit, timeRange) => {
           try {
             array.push(await axios(url, header));
             // console.log("for loop axios", response.data);
-            array.length === 3
-              ? dispatch(fetchTrackDataSucces(track.name, array))
-              : console.log();
+            if (array.length === 3) {
+              dispatch(fetchTrackDataSucces(track.name, array));
+            }
+            if (i === limit - 1) {
+              console.log("last unit!");
+              dispatch(setLoading());
+            }
           } catch (e) {
             console.log(e);
           }

@@ -38,41 +38,24 @@ function Home() {
   return (
     <div>
       <Header />
-      <div className="body">
-        <div className="button">
-          {/* <button
-          className="big-button"
-          onClick={() => {
-            fetchingPlaylist();
-            set_showPlaylist(true);
-            set_showUser(false);
-          }}
-        >
-          <u>fetch your playlists</u>
-        </button> */}
-          <p>
-            select the number of songs{" "}
-            <card className="small-button">{value}</card>
-          </p>
-          {/* <RangeSlider
+
+      <div className="ui">
+        <div className="custom-h4">select number of songs</div>
+        <span className="small-button">{value}</span>
+        <div class="slidecontainer">
+          <input
+            type="range"
             min={1}
             max={50}
             value={value}
             onChange={(e) => setValue(parseInt(e.target.value))}
-            style={{ color: "#00005c" }}
-          /> */}
-          <div class="slidecontainer">
-            <input
-              type="range"
-              min={1}
-              max={50}
-              value={value}
-              onChange={(e) => setValue(parseInt(e.target.value))}
-              class="slider"
-              id="myRange"
-            />
-          </div>
-          <p>select timerange</p>
+            class="slider"
+            id="myRange"
+          />
+        </div>
+
+        <div className="custom-h4">select timerange</div>
+        <div className="range-buttons">
           <button
             className="big-button"
             onClick={() => onSubmitHandler(value, "short_term")}
@@ -92,15 +75,12 @@ function Home() {
             all time
           </button>
         </div>
-        {/* <P5sketchComponent className="sketch2" props={props} /> */}
-        {/* <P5sketchComponent className="sketch" props={props} /> */}
-        {/* <UserData /> */}
-        {/* {showPlaylist === true ? <PlaylistData /> : <p></p>} */}
-        <P5sketchComponent
-          props={{ value: value, show: show }}
-          className="sketch"
-        />
       </div>
+
+      <P5sketchComponent
+        props={{ value: value, show: show }}
+        className="sketch"
+      />
     </div>
   );
 }
