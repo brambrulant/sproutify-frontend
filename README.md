@@ -33,3 +33,14 @@ The fractal trees are based on Daniel Shiffman's book [The Nature of Code](https
 - [Project Board](https://github.com/brambrulant/sproutify-frontend/projects/1)
 - [Wireframe](https://wireframepro.mockflow.com/view/Mc23e8bffaf7df717d4c67f7a3a8927781610456322725)
 - [Backend repository](https://github.com/brambrulant/sproutify-backend)
+
+# Installation
+
+- clone the Repo git clone https://github.com/brambrulant/sproutify-frontend.git
+- Install dependencies npm init
+- Start the project through npm start
+
+# Endpoints
+
+- /login Here you can login to spotify account. If your logged in it redirects you to =>
+- /home
