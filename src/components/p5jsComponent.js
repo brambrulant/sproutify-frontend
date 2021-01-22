@@ -1,5 +1,5 @@
 import React from "react";
-import { ProgressBar, Spinner } from "react-bootstrap";
+import { ProgressBar } from "react-bootstrap";
 import P5Wrapper from "react-p5-wrapper";
 import { useSelector } from "react-redux";
 
@@ -12,15 +12,9 @@ import TrackList from "./trackList.js";
 const P5sketchComponent = (object) => {
   const tracks = useSelector(selectUserTracks);
 
-  const getInfo = () => {
-    console.log("info!");
-  };
-
   console.log("what a show", tracks);
   return (
     <div className="App-header">
-      {/* <P5Wrapper sketch={sketch2} rerender={props} /> */}
-      {/* <P5Wrapper sketch={sketch} playlist={playlist} rerender={props} /> */}
       {tracks.loading === false ? (
         <div>
           <P5Wrapper
