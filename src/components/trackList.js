@@ -11,7 +11,7 @@ const TrackList = () => {
       <td>
         <th>id</th>
         {tracks.userTracks.map((track, index) => {
-          return <tr key={index}>{index}</tr>;
+          return <tr key={index}>{index + 1}</tr>;
         })}
       </td>
       <td>

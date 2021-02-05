@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 //import sketch3 from "../sketch3.js";
 import Sketch5 from "../sketches/sketch5.js";
 import { selectUserTracks } from "../store/user/selector";
+import CreatePlaylist from "./createPlaylist.js";
 import TrackData from "./trackData";
 import TrackList from "./trackList.js";
 
@@ -28,6 +29,7 @@ const P5sketchComponent = (object) => {
             <TrackData />
 
             <TrackList />
+            <CreatePlaylist />
           </div>
         </div>
       ) : (
